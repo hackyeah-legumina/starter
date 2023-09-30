@@ -22,7 +22,7 @@ services:
       - "3000"
     volumes:
       - "./apps/backend-microservice:/app:delegated"
-    command: "bash -c 'yarn install --frozen-lockfile && yarn prisma generate && yarn start:dev'"
+    command: "bash -c 'yarn install --frozen-lockfile && yarn prisma generate && yarn prisma migrate dev && yarn start:dev'"
     networks:
       - "app"
     depends_on:
