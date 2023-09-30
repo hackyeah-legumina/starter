@@ -13,8 +13,9 @@ services:
       NODE_ENV: "development"
       HOST: "0.0.0.0"
       PORT: "3000"
-      DATABASE_URL: "mysql://root:root@mysql:3306/app"
-      AI_URL: ""
+      DATABASE_URL: $DATABASE_URL
+      AI_URL: $AI_URL
+      JWT_SECRET: $JWT_SECRET
     ports:
       - "3000:3000"
     expose:
