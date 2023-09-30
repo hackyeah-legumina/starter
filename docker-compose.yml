@@ -19,7 +19,7 @@ services:
     expose:
       - "3000"
     volumes:
-      - "./:/app:delegated"
+      - "./apps/backend-microservice:/app:delegated"
     command: "bash -c 'yarn && yarn start:dev'"
     networks:
       - "app"

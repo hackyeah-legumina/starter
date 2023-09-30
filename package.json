@@ -1,0 +1,9 @@
+{
+  "name": "starter",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "submodule:init": "git submodule update --init --recursive",
+    "submodule:pull": "git submodule update --remote --merge"
+  }
+}
