@@ -1,6 +1,6 @@
 version: '3'
 services:
-  backend-microservice:
+  backend:
     build:
       context: "./apps/backend-microservice"
       dockerfile: "Dockerfile"
@@ -14,17 +14,37 @@ services:
       HOST: "0.0.0.0"
       PORT: "3000"
       DATABASE_URL: "mysql://root:root@mysql:3306/app"
+      AI_URL: ""
     ports:
       - "3000:3000"
     expose:
       - "3000"
     volumes:
       - "./apps/backend-microservice:/app:delegated"
-    command: "bash -c 'yarn && yarn start:dev'"
+    command: "bash -c 'yarn install --frozen-lockfile && yarn prisma generate && yarn start:dev'"
     networks:
       - "app"
     depends_on:
       - "mysql"
+
+  frontend:
+    build:
+      context: "./apps/client"
+      dockerfile: "Dockerfile"
+      args:
+        UID: "${UID}"
+        GID: "${GID}"
+    working_dir: "/app"
+    restart: "unless-stopped"
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080"
+    volumes:
+      - "./apps/client:/app:delegated"
+    command: "bash -c 'npm install && npm run dev'"
+    networks:
+      - "app"
 
   mysql:
     image: "mysql:8"
@@ -35,7 +55,7 @@ services:
     ports:
       - "3306:3306"
     expose:
-      - "3306:3306"
+      - "3306"
     volumes:
       - "mysql:/var/lib/mysql"
     networks:

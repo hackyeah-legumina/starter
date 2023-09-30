@@ -1,3 +1,6 @@
 [submodule "apps/backend-microservice"]
 	path = apps/backend-microservice
 	url = git@github.com:hackyeah-legumina/backend-microservice.git
+[submodule "apps/client"]
+	path = apps/client
+	url = git@github.com:hackyeah-legumina/client.git
