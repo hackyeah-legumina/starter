@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "submodule:init": "cp .env.example .env && git submodule update --init --recursive",
-    "submodule:pull": "git submodule update --remote --merge"
+    "init": "cp .env.example .env && yarn cert",
+    "submodule:init": "git submodule update --init --recursive",
+    "submodule:pull": "git submodule update --remote --merge",
+    "cert": "openssl req -x509 -nodes -newkey rsa:2048 -keyout ./nginx/app.key -out nginx/app.crt -subj '/CN=app.localhost'",
+    "docker:start": "docker compose up -d",
+    "docker:stop": "docker compose down",
+    "docker:restart": "docker compose restart",
+    "docker:logs": "docker compose logs -f"
   }
 }
