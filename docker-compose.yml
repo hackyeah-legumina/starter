@@ -43,6 +43,23 @@ services:
     networks:
       - "app"
 
+  ai:
+    build:
+      context: "./apps/ai"
+      dockerfile: "Dockerfile"
+      args:
+        UID: "${UID}"
+        GID: "${GID}"
+    working_dir: "/app"
+    restart: "unless-stopped"
+    expose:
+      - "2137"
+    volumes:
+      - "./apps/ai:/app:delegated"
+    command: "bash -c 'python main.py'"
+    networks:
+      - "app"
+
   nginx:
     image: "nginx:1.25"
     volumes:

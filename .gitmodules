@@ -4,3 +4,6 @@
 [submodule "apps/client"]
 	path = apps/client
 	url = git@github.com:hackyeah-legumina/client.git
+[submodule "apps/ai"]
+	path = apps/ai
+	url = git@github.com:hackyeah-legumina/ai-microservice.git
