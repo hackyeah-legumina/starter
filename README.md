@@ -41,6 +41,8 @@ Start our project with Docker:
 yarn docker:start
 ```
 
+Now you can access the site under the `https://app.localhost` location.
+
 ### Collaboration :handshake:
 We believe in the power of collaboration and teamwork. Join us in creating something great! Feel free to reach out if you have ideas, suggestions, or if you'd like to contribute.
 
