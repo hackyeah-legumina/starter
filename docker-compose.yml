@@ -16,6 +16,7 @@ services:
       DATABASE_URL: $DATABASE_URL
       AI_URL: $AI_URL
       JWT_SECRET: $JWT_SECRET
+      STATUS_SECRET_KEY: $STATUS_SECRET_KEY
     expose:
       - "3000"
     volumes:
