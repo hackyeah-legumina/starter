@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "init": "cp .env.example .env && yarn cert",
+    "setup": "cp .env.example .env && yarn cert",
     "submodule:init": "git submodule update --init --recursive",
     "submodule:pull": "git submodule update --remote --merge",
     "cert": "openssl req -x509 -nodes -newkey rsa:2048 -keyout ./nginx/app.key -out nginx/app.crt -subj '/CN=app.localhost'",
